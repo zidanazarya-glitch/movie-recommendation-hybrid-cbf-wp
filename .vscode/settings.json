@@ -1,0 +1,9 @@
+{
+    "python.analysis.extraPaths": [
+        "./dataset/pages",
+        "./model/model",
+        "./model/model",
+        "./model/model"
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
+}
