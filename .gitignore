@@ -1,0 +1,16 @@
+# Dataset
+/dataset/movies.csv
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Temporary files
+*.log
