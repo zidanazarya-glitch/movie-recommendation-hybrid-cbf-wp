@@ -28,7 +28,7 @@ st.set_page_config(
 # HEADER
 # =====================================================
 
-st.title("📊 Evaluasi Sistem Rekomendasi Film")
+st.title("Evaluasi Sistem Rekomendasi Film")
 
 st.markdown("""
 Halaman ini digunakan untuk mengevaluasi kinerja sistem rekomendasi
@@ -58,7 +58,7 @@ jumlah_dataset = len(df)
 # PARAMETER PENGUJIAN
 # =====================================================
 
-st.subheader("👶 Parameter Pengujian")
+st.subheader("Parameter Pengujian")
 
 col1, col2 = st.columns(2)
 
@@ -133,7 +133,7 @@ TP = cm[1][1]
 # KPI
 # =====================================================
 
-st.subheader("📈 Dashboard Evaluasi")
+st.subheader("Dashboard Evaluasi")
 
 k1, k2, k3, k4 = st.columns(4)
 
@@ -143,7 +143,7 @@ k1.metric(
 )
 
 k2.metric(
-    "👶 Setelah Age Filter",
+    "Setelah Age Filter",
     jumlah_age
 )
 
@@ -153,7 +153,7 @@ k3.metric(
 )
 
 k4.metric(
-    "⭐ Top Recommendation",
+    "Top Recommendation",
     len(hasil)
 )
 
@@ -173,13 +173,13 @@ persentase_safe = round(
     2
 )
 
-st.subheader("📊 Persentase Penyaringan Film")
+st.subheader("Persentase Penyaringan Film")
 
 col1, col2 = st.columns(2)
 
 with col1:
     st.metric(
-        "👶 Lolos Age Rating Filter",
+        "Lolos Age Rating Filter",
         f"{persentase_age}%"
     )
 
@@ -241,7 +241,7 @@ grafik = pd.DataFrame({
 # FUNNEL CHART
 # =====================================================
 
-st.subheader("📉 Funnel Tahapan Penyaringan")
+st.subheader("Funnel Tahapan Penyaringan")
 
 fig_funnel = px.funnel(
 
@@ -280,11 +280,11 @@ st.plotly_chart(
 
 st.divider()
 
-st.subheader("📊 Hasil Running Matriks Evaluasi")
+st.subheader("Hasil Running Matriks Evaluasi")
 
 st.code(report)
 
-st.subheader("📌 Hitungan Matriks Kontingensi")
+st.subheader("Hitungan Matriks Kontingensi")
 
 st.code(f"""
 True Negative (TN): {TN}
@@ -307,7 +307,7 @@ st.divider()
 # BAR CHART
 # =====================================================
 
-st.subheader("📊 Jumlah Film pada Setiap Tahapan")
+st.subheader("Jumlah Film pada Setiap Tahapan")
 
 fig_bar = px.bar(
 
@@ -363,7 +363,7 @@ st.divider()
 # PIE CHART FILM AMAN
 # =====================================================
 
-st.subheader("🛡️ Distribusi Film Aman dan Tidak Aman")
+st.subheader("Distribusi Film Aman dan Tidak Aman")
 
 pie = pd.DataFrame({
 
@@ -428,7 +428,7 @@ st.divider()
 # GAUGE CHART
 # =====================================================
 
-st.subheader("🎯 Persentase Film Aman")
+st.subheader("Persentase Film Aman")
 
 fig_gauge = go.Figure(
 
@@ -519,7 +519,7 @@ st.divider()
 # TOP 10 REKOMENDASI
 # =====================================================
 
-st.subheader("🏆 Top 10 Hasil Weighted Product")
+st.subheader("Top 10 Hasil Weighted Product")
 
 hasil_tampil = hasil.copy()
 
@@ -566,7 +566,7 @@ st.divider()
 # GRAFIK VEKTOR V
 # =====================================================
 
-st.subheader("📈 Distribusi Nilai Weighted Product")
+st.subheader("Distribusi Nilai Weighted Product")
 
 fig_wp = px.bar(
 
@@ -624,7 +624,7 @@ st.divider()
 # EVALUASI ACCURACY
 # =====================================================
 
-st.header("🎯 Evaluasi Accuracy Sistem")
+st.header("Evaluasi Accuracy Sistem")
 
 st.markdown("""
 Evaluasi dilakukan dengan membandingkan hasil prediksi sistem
@@ -654,9 +654,9 @@ evaluasi["Prediction"] = 1
 # Status
 evaluasi["Status"] = evaluasi.apply(
     lambda row:
-    "✅ Benar"
+    "Benar"
     if row["Actual"] == row["Prediction"]
-    else "❌ Salah",
+    else "Salah",
     axis=1
 )
 
@@ -677,7 +677,7 @@ st.divider()
 # RUMUS ACCURACY
 # =====================================================
 
-st.subheader("📐 Rumus Accuracy")
+st.subheader("Rumus Accuracy")
 
 st.latex(r'''
 Accuracy=
@@ -688,13 +688,13 @@ Accuracy=
 
 benar = len(
     evaluasi[
-        evaluasi["Status"]=="✅ Benar"
+        evaluasi["Status"]=="Benar"
     ]
 )
 
 salah = len(
     evaluasi[
-        evaluasi["Status"]=="❌ Salah"
+        evaluasi["Status"]=="Salah"
     ]
 )
 
@@ -714,7 +714,7 @@ st.divider()
 # DETAIL EVALUASI
 # =====================================================
 
-st.subheader("📋 Detail Perhitungan Accuracy")
+st.subheader("Detail Perhitungan Accuracy")
 
 st.dataframe(
 
@@ -812,7 +812,7 @@ st.divider()
 # INTERPRETASI
 # =====================================================
 
-st.subheader("💡 Interpretasi Accuracy")
+st.subheader("Interpretasi Accuracy")
 
 st.info(f"""
 
@@ -836,7 +836,7 @@ yang aman untuk pengguna.
 
 st.divider()
 
-st.header("📑 Ringkasan Hasil Evaluasi")
+st.header("Ringkasan Hasil Evaluasi")
 
 col1, col2 = st.columns(2)
 
@@ -845,13 +845,13 @@ with col1:
     st.success(f"""
 ### Hasil Penyaringan
 
-- 🎬 Dataset Awal : **{jumlah_dataset}** film
+- Dataset Awal : **{jumlah_dataset}** film
 
-- 👶 Lolos Age Rating Filter : **{jumlah_age}** film
+- Lolos Age Rating Filter : **{jumlah_age}** film
 
 - 🛡 Lolos Safety Filter : **{jumlah_safe}** film
 
-- ⭐ Top Recommendation : **{len(hasil)}** film
+- Top Recommendation : **{len(hasil)}** film
 """)
 
 with col2:
@@ -859,15 +859,15 @@ with col2:
     st.success(f"""
 ### Hasil Evaluasi
 
-- 🎯 Accuracy : **{accuracy*100:.2f}%**
+- Accuracy : **{accuracy*100:.2f}%**
 
-- 📌 Film Terbaik :
+- Film Terbaik :
 **{hasil.iloc[0]['title']}**
 
-- ⭐ IMDb Rating :
+- IMDb Rating :
 **{hasil.iloc[0]['imdb_rating']}**
 
-- 🏆 Nilai Vektor V :
+- Nilai Vektor V :
 **{hasil.iloc[0]['Vektor_V']:.4f}**
 """)
 
@@ -877,7 +877,7 @@ st.divider()
 # ANALISIS HASIL
 # =====================================================
 
-st.header("📖 Analisis Hasil")
+st.header("Analisis Hasil")
 
 st.markdown(f"""
 
@@ -911,38 +911,38 @@ st.divider()
 # KESIMPULAN
 # =====================================================
 
-st.header("📌 Kesimpulan")
+st.header("Kesimpulan")
 
 st.success(f"""
 
 Berdasarkan hasil implementasi dan evaluasi sistem,
 dapat disimpulkan bahwa:
 
-✅ Content-Based Filtering menggunakan
+Content-Based Filtering menggunakan
 TF-IDF dan Cosine Similarity
 berhasil menemukan kandidat film
 yang memiliki kemiripan dengan film acuan.
 
-✅ Age Rating Filter berhasil
+Age Rating Filter berhasil
 menyesuaikan rekomendasi berdasarkan
 kategori usia pengguna.
 
-✅ Safety Filter berhasil
+Safety Filter berhasil
 menghilangkan seluruh film yang memiliki
 atribut **content_warning = True** sehingga
 rekomendasi menjadi lebih aman.
 
-✅ Weighted Product berhasil melakukan
+Weighted Product berhasil melakukan
 perangkingan berdasarkan nilai
 Similarity Score dan IMDb Rating
 untuk memperoleh film terbaik.
 
-✅ Sistem menghasilkan
+Sistem menghasilkan
 **Top 10 rekomendasi film**
 yang relevan dan aman
 bagi pengguna anak di bawah umur.
 
-✅ Hasil evaluasi menunjukkan
+Hasil evaluasi menunjukkan
 Accuracy sebesar **{accuracy*100:.2f}%**
 yang menunjukkan bahwa prediksi sistem
 sesuai dengan label keamanan

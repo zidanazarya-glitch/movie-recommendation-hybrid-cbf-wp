@@ -7,9 +7,9 @@ from model.recommendation import recommend
 # Header
 # =====================================================
 
-st.title("🎬 Sistem Rekomendasi Film")
+st.title("Sistem Rekomendasi Film")
 
-st.markdown("### 👶 Data Pengguna")
+st.markdown("### Data Pengguna")
 
 umur = st.number_input(
     "Masukkan Umur Anak",
@@ -30,7 +30,7 @@ df = load_data()
 movie_list = sorted(df["title"].tolist())
 
 movie = st.selectbox(
-    "🎥 Pilih Film yang Disukai",
+    "Pilih Film yang Disukai",
     movie_list
 )
 
@@ -38,7 +38,7 @@ movie = st.selectbox(
 # Tombol Rekomendasi
 # =====================================================
 
-if st.button("🔍 Cari Rekomendasi", use_container_width=True):
+if st.button("Cari Rekomendasi", use_container_width=True):
 
     result, jumlah_age, jumlah_safe = recommend(
         movie,
@@ -89,7 +89,7 @@ if st.button("🔍 Cari Rekomendasi", use_container_width=True):
     # =====================================================
 
     result["Status Keamanan"] = result["content_warning"].apply(
-        lambda x: "❌ Tidak Aman" if x else "✅ Aman untuk Anak"
+        lambda x: " Tidak Aman" if x else " Aman untuk Anak"
     )
 
     # =====================================================
@@ -143,12 +143,12 @@ if st.button("🔍 Cari Rekomendasi", use_container_width=True):
     )
 
     col2.metric(
-        "🛡 Film Lolos Safety Filter",
+        "Film Lolos Safety Filter",
         jumlah_safe
     )
 
     col3.metric(
-        "⭐ Top Rekomendasi",
+        "Top Rekomendasi",
         len(result)
     )
 
@@ -158,7 +158,7 @@ if st.button("🔍 Cari Rekomendasi", use_container_width=True):
     # Hasil
     # =====================================================
 
-    st.subheader("📋 Top 10 Rekomendasi Film")
+    st.subheader("Top 10 Rekomendasi Film")
 
     st.dataframe(
         result[

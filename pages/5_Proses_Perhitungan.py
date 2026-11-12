@@ -8,7 +8,7 @@ from model.feature_engineering import feature_engineering
 from model.age_filter import filter_by_age
 from model.weighted_product import weighted_product
 
-st.title("🧮 Proses Perhitungan Sistem")
+st.title("Proses Perhitungan Sistem")
 
 st.markdown("""
 Halaman ini menunjukkan proses perhitungan
@@ -32,7 +32,7 @@ movie = st.selectbox(
     sorted(df["title"])
 )
 
-st.header("1️⃣ Feature Engineering")
+st.header("1️ Feature Engineering")
 
 df, tfidf, tfidf_matrix = feature_engineering(df)
 
@@ -42,7 +42,7 @@ st.write("Ukuran TF-IDF Matrix")
 
 st.write(tfidf_matrix.shape)
 
-st.header("2️⃣ Cosine Similarity")
+st.header("2️ Cosine Similarity")
 
 similarity_matrix = cosine_similarity(
     tfidf_matrix,
@@ -80,7 +80,7 @@ st.dataframe(
 
 )
 
-st.header("3️⃣ Age Rating Filter")
+st.header("3️ Age Rating Filter")
 
 df_age = filter_by_age(
     df_similarity,
@@ -115,7 +115,7 @@ st.dataframe(
 
 )
 
-st.header("4️⃣ Safety Filter")
+st.header("4️ Safety Filter")
 
 df_safe = df_age[
     df_age["content_warning"] == False
@@ -151,7 +151,7 @@ st.dataframe(
 
 )
 
-st.header("5️⃣ Weighted Product")
+st.header("5️ Weighted Product")
 
 ranking = weighted_product(
     df_safe
@@ -179,7 +179,7 @@ st.dataframe(
 
 )
 
-st.header("🏆 Top Recommendation")
+st.header("Top Recommendation")
 
 top10 = ranking.head(10)
 
@@ -213,7 +213,7 @@ st.dataframe(
 
 )
 
-st.header("🔄 Alur Perhitungan")
+st.header("Alur Perhitungan")
 
 st.info("""
 
@@ -249,7 +249,7 @@ Top 10 Recommendation
 
 """)
 
-st.header("📄 Kesimpulan Perhitungan")
+st.header("Kesimpulan Perhitungan")
 
 film_terbaik = top10.iloc[0]["title"]
 

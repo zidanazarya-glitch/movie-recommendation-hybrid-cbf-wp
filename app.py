@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🎬 Movie Recommendation System")
+st.title("Movie Recommendation System")
 
 st.markdown("""
 ## Selamat Datang

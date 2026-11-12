@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🎬 Sistem Rekomendasi Film")
+st.title("Sistem Rekomendasi Film")
 
 st.markdown("""
 ### Hybrid Content Based Filtering + Weighted Product

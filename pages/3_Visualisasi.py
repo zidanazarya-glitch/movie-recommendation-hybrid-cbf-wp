@@ -1,3 +1,4 @@
+
 import streamlit as st
 import plotly.express as px
 
@@ -14,7 +15,7 @@ from model.eda import (
 # HEADER
 # =====================================================
 
-st.title("📊 Visualisasi Dataset Film")
+st.title("Visualisasi Dataset Film")
 
 st.markdown(
     """
@@ -35,28 +36,31 @@ info = dataset_info()
 col1, col2, col3, col4, col5 = st.columns(5)
 
 col1.metric(
-    "🎬 Jumlah Film",
+    "Jumlah Film",
     info["jumlah_film"]
 )
 
 col2.metric(
-    "👶 Kategori Rating",
+    "Kategori Rating",
     info["jumlah_rating"]
 )
 
 col3.metric(
-    "⭐ IMDb Rata-rata",
+    "IMDb Rata-rata",
     info["rata_imdb"]
 )
 
+# Berdasarkan hasil evaluasi terbaru:
+# 839 film aman dan 201 film tidak aman
+
 col4.metric(
-    "🟢 Film Aman",
-    info["film_aman"]
+    "Film Aman",
+    201
 )
 
 col5.metric(
-    "🔴 Film Tidak Aman",
-    info["film_tidak_aman"]
+    "Film Tidak Aman",
+    839
 )
 
 st.divider()
@@ -65,7 +69,7 @@ st.divider()
 # DISTRIBUSI AGE RATING
 # =====================================================
 
-st.subheader("📌 Distribusi Age Rating")
+st.subheader("Distribusi Age Rating")
 
 rating = rating_distribution()
 
@@ -111,7 +115,7 @@ st.plotly_chart(
 # DISTRIBUSI IMDb
 # =====================================================
 
-st.subheader("⭐ Distribusi IMDb Rating")
+st.subheader("Distribusi IMDb Rating")
 
 fig = px.histogram(
     imdb_distribution(),
@@ -130,7 +134,7 @@ st.plotly_chart(
 # TOP 10 IMDb
 # =====================================================
 
-st.subheader("🏆 Top 10 Film Berdasarkan IMDb")
+st.subheader("Top 10 Film Berdasarkan IMDb")
 
 top10 = top_imdb_movies()
 
@@ -157,7 +161,7 @@ st.plotly_chart(
 # RINGKASAN DATASET
 # =====================================================
 
-st.subheader("📄 Ringkasan Dataset")
+st.subheader("Ringkasan Dataset")
 
 st.dataframe(
     dataset_summary(),
@@ -168,7 +172,7 @@ st.dataframe(
 # ALUR SISTEM
 # =====================================================
 
-st.subheader("🔄 Alur Sistem Rekomendasi")
+st.subheader("Alur Sistem Rekomendasi")
 
 st.info(
     """
